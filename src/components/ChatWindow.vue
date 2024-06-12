@@ -5,7 +5,7 @@
     <div v-else class="messages">
       <div v-for="doc in documents" :key="doc.id" class="single">
         <span class="created-at">{{ formatDate(doc.createdAt) }}</span>
-        <span class="name"> {{ doc.name }}</span> <!-- Add an extra space before the name -->
+        <span class="name"> {{ doc.name }}</span>
         <span class="message">{{ doc.message }}</span>
       </div>
     </div>
@@ -22,7 +22,7 @@ export default {
 
     const formatDate = (timestamp) => {
       if (!timestamp) return '';
-      return format(new Date(timestamp.seconds * 1000), 'PPpp');
+      return format(new Date(timestamp.seconds * 1000), 'PPpp'); // formatting the timestamp
     };
 
     return { error, documents, formatDate };
