@@ -6,22 +6,29 @@ const getCollection = (collectionName) => {
   const documents = ref(null);
   const error = ref(null);
 
+  // create a reference to the Firestore collection and order by createdAt
   const colRef = collection(db, collectionName);
   const q = query(colRef, orderBy('createdAt'));
 
-  const unsubscribe = onSnapshot(q, snapshot => {
-    let results = [];
-    snapshot.docs.forEach(doc => {
-      doc.data().createdAt && results.push({ ...doc.data(), id: doc.id });
-    });
-    documents.value = results;
-    error.value = null;
-  }, err => {
-    console.log(err.message);
-    documents.value = null;
-    error.value = 'could not fetch the data';
-  });
+  // subscribe to real-time updates from Firestore
+  const unsubscribe = onSnapshot(
+    q,
+    (snapshot) => {
+      const results = snapshot.docs
+        .map(doc => ({ ...doc.data(), id: doc.id }))
+        .filter(doc => doc.createdAt);  // want to ensure createdAt field exists
 
+      documents.value = results;
+      error.value = null;
+    },
+    (err) => {
+      console.error(err.message);
+      documents.value = null;
+      error.value = 'Could not fetch the data';
+    }
+  );
+
+  // unsub from updates when the component is unmounted from dom
   watchEffect((onInvalidate) => {
     onInvalidate(() => unsubscribe());
   });
