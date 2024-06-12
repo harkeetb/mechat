@@ -13,7 +13,7 @@ import { ref } from 'vue';
 import useSignup from '@/composables/useSignup';
 
 export default {
-  setup(props, context) {
+  setup(context) {
     const { error, signup } = useSignup();
 
     // refs
@@ -32,7 +32,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
