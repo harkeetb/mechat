@@ -10,9 +10,11 @@ The concept for MeChat originated from a Python application I built last summer 
 
 # What does MeChat look like so far?
 
-![sign up form](src\assets\screenshots\mechat_chatroom.PNG)
+Sign up form:
+![sign up form](src/assets/screenshots/mechat_signup_form.PNG)
 
-![chatroom form](src\assets\screenshots\mechat_chatroom.PNG)
+Chatroom form:
+![chatroom form](src/assets/screenshots/mechat_chatroom.PNG)
 
 ## Project setup
 ```
