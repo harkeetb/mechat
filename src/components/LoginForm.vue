@@ -12,7 +12,7 @@ import { ref } from 'vue';
 import useLogin from '@/composables/useLogin';
 
 export default {
-  setup(props, context) {
+  setup(context) {
     // refs
     const email = ref('');
     const password = ref('');
@@ -29,8 +29,4 @@ export default {
     return { email, password, handleSubmit, error };
   }
 }
-</script>
-
-<style>
-/* Add any relevant styles */
-</style>
+</script> 
