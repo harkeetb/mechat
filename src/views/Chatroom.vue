@@ -13,7 +13,6 @@ import Navbar from '@/components/Navbar.vue';
 import getUser from '@/composables/getUser';
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
-import ChatWindowVue from '@/components/ChatWindow.vue';
 
 export default {
   components: { Navbar, NewChatForm, ChatWindow },
