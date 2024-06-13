@@ -1,4 +1,4 @@
-# Me Chat
+# MeChat: A chat application backed by Vue.js
 
 ## What is this application?
 
